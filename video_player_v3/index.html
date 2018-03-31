@@ -1,24 +1,143 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Interactive Video Player</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Interactive Video Player</title>
 	<link rel="stylesheet" href="css/normalize.css">
-	<script
-	  src="https://code.jquery.com/jquery-3.3.1.min.js"
-	  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-	  crossorigin="anonymous">
-  	</script>
+	<script 
+		src="http://code.jquery.com/jquery-3.3.1.js"   
+		integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="   
+		crossorigin="anonymous">
+	</script> 
 	 <script type="text/javascript" src="js/mediaelement-and-player.min.js"></script>
 	 <link rel="stylesheet" type="text/css" href="css/mediaelementplayer.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-	<video width="465px" height="auto" class="mejs__player">
-        <source src="video/video.mp4" type="video/mp4">
-        <source src="video/video.ogg" type="video/ogg">
-        <track label="English" kind="subtitles" srclang="en" src="captions.vtt" default>
-    </video>
+	<div class="videoWrapper">
+		<video id="main-video" style="width:100%;height:100%;" controls="controls" width="100%" height="100%"
+ preload="auto>
+	        <source src="video/video.mp4" type="video/mp4">
+	        <source src="video/video.ogg" type="video/ogg">
+	        <track label="English" kind="subtitles" srclang="en" src="captions.vtt" default>
+	    </video>
+	</div>
+	<div class="caption-container">
+		<p>
+			<span class="one">Now that we've looked at the architecture of the internet, let's see how you might</span>
+			<span class="two"> connect your personal devices to the internet inside your house.</span>
+			<span class="three"> Well there are many ways to connect to the internet, and</span>
+			<span class="four"> most often people connect wirelessly.</span>
+		</p>
+		<p>
+			<span class="five">Let's look at an example of how you can connect to the internet.</span>
+			<span class="six"> If you live in a city or a town, you probably have a coaxial cable for</span>
+			<span class="seven"> cable Internet, or a phone line if you have DSL, running to the outside of</span>
+			<span class="eight"> your house, that connects you to the Internet Service Provider, or ISP.</span>
+			<span class="nine"> If you live far out in the country, you'll more likely have</span>
+			<span class="ten"> a dish outside your house, connecting you wirelessly to your closest ISP, or</span>
+			<span class="eleven"> you might also use the telephone system.</span>
+		</p>
+		<p>
+			<span class="twelve">Whether a wire comes straight from the ISP hookup outside your house, or</span>
+			<span class="thirteen"> it travels over radio waves from your roof,</span>
+			<span class="fourteen"> the first stop a wire will make once inside your house, is at your modem.</span>
+			<span class="fifteen"> A modem is what connects the internet to your network at home.</span>
+			<span class="sixteen"> A few common residential modems are DSL or</span>
+		</p>
+	</div>
+	<button onclick="getCurTime()" type="button">Get current time position</button>
+<button onclick="setCurTime()" type="button">Set time position to 5 seconds</button><br> 
+
+	<script type="text/javascript">
+		$('video').mediaelementplayer({
+			features: ['playpause', 'progress', 'volume', 'fullscreen'],
+			startLanguage: 'en'
+		});
+
+		const vid = document.getElementById("main-video");
+
+		function getCurTime() { 
+		    alert(vid.currentTime);
+		} 
+
+		function setCurTime() { 
+		    vid.currentTime=5;
+		} 
+
+		let timeNow = () => {
+			setInterval(() => {
+				if(vid.currentTime >= 0.240 && vid.currentTime < 4.130) {
+					$('.one').css('color','orange');
+				}
+				else if(vid.currentTime >= 4.130 && vid.currentTime < 7.535) {
+					$('span').css('color','black');
+					$('.two').css('color','orange');
+				}
+				else if(vid.currentTime >= 7.535 && vid.currentTime < 11.270) {
+					$('span').css('color','black');
+					$('.three').css('color','orange');
+				}
+				else if(vid.currentTime >= 11.270 && vid.currentTime < 13.960) {
+					$('span').css('color','black');
+					$('.four').css('color','orange');
+				}
+				else if(vid.currentTime >= 13.960 && vid.currentTime < 17.940) {
+					$('span').css('color','black');
+					$('.five').css('color','orange');
+				}
+				else if(vid.currentTime >= 17.940 && vid.currentTime < 22.370) {
+					$('span').css('color','black');
+					$('.six').css('color','orange');
+				}
+				else if(vid.currentTime >= 22.370 && vid.currentTime < 26.880) {
+					$('span').css('color','black');
+					$('.seven').css('color','orange');
+				}
+				else if(vid.currentTime >= 26.880 && vid.currentTime < 30.920) {
+					$('span').css('color','black');
+					$('.eight').css('color','orange');
+				}
+				else if(vid.currentTime >= 32.100 && vid.currentTime < 34.730) {
+					$('span').css('color','black');
+					$('.nine').css('color','orange');
+				}
+				else if(vid.currentTime >= 34.730 && vid.currentTime < 39.430) {
+					$('span').css('color','black');
+					$('.ten').css('color','orange');
+				}
+				else if(vid.currentTime >= 39.430 && vid.currentTime < 41.190) {
+					$('span').css('color','black');
+					$('.eleven').css('color','orange');
+				}
+				else if(vid.currentTime >= 41.190 && vid.currentTime < 46.300) {
+					$('span').css('color','black');
+					$('.twelve').css('color','orange');
+				}
+				else if(vid.currentTime >= 46.300 && vid.currentTime < 49.270) {
+					$('span').css('color','black');
+					$('.thirteen').css('color','orange');
+				}
+				else if(vid.currentTime >= 49.270 && vid.currentTime < 53.760) {
+					$('span').css('color','black');
+					$('.fourteen').css('color','orange');
+				}
+				else if(vid.currentTime >= 53.760 && vid.currentTime < 57.780) {
+					$('span').css('color','black');
+					$('.fifteen').css('color','orange');
+				}
+				else if(vid.currentTime >= 57.780) {
+					$('span').css('color','black');
+					$('.sixteen').css('color','orange');
+				}
+				else {
+					$('span').css('color','black');
+				}
+			}, 100)
+		}
+
+		timeNow();
+	</script>
 </body>
 </html>
