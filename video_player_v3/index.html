@@ -49,23 +49,18 @@
 	</div>
 	<button onclick="getCurTime()" type="button">Get current time position</button>
 <button onclick="setCurTime()" type="button">Set time position to 5 seconds</button><br> 
-
 	<script type="text/javascript">
 		$('video').mediaelementplayer({
 			features: ['playpause', 'progress', 'volume', 'fullscreen'],
 			startLanguage: 'en'
 		});
-
 		const vid = document.getElementById("main-video");
-
 		function getCurTime() { 
 		    alert(vid.currentTime);
 		} 
-
 		function setCurTime() { 
 		    vid.currentTime=5;
 		} 
-
 		let timeNow = () => {
 			setInterval(() => {
 				if(vid.currentTime >= 0.240 && vid.currentTime < 4.130) {
@@ -136,7 +131,6 @@
 				}
 			}, 100)
 		}
-
 		timeNow();
 	</script>
 </body>
