@@ -21,6 +21,10 @@ body {
 	line-height: 1.5;
 }
 
+ .mejs__container .mejs__controls {
+        background: #333;
+    }
+
 /* Media Queries (Desktop) */
 @media screen and (min-width: 1024px) {
 	.videoWrapper {
